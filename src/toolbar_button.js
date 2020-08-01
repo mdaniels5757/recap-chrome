@@ -23,7 +23,7 @@ function getTabById(tabId, cb){
 function updateToolbarButton(tab) {
   // Updates the toolbar button for a tab to reflect the tab's login status.
   let setTitleIcon = function (title, icon) {
-    chrome.browserAction.setTitle({title: `RECAP: ${title}`});
+    chrome.browserAction.setTitle({title: 'RECAP: ' + title});
     chrome.browserAction.setIcon({path: icon});
   };
 
@@ -45,7 +45,7 @@ function updateToolbarButton(tab) {
       setDefaultOptions({});
     }
 
-    if (items && items['options'] && !items['options']['recap_enabled']){
+    if (items && items['options'] && items['options']['recap_disabled']){
       setTitleIcon('RECAP is temporarily disabled', {
         '19': 'assets/images/disabled-19.png',
         '38': 'assets/images/disabled-38.png'
